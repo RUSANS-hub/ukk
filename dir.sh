@@ -35,3 +35,15 @@ case $choice in
 esac
 
 echo "index.php has been created in /var/www/html/$dir with the chosen content."
+
+#!/bin/bash
+
+read -p "Ubah Direktori Sekarang? (y/n): " change
+
+if [ "$change" == 'y' ]; then
+    nano /etc/nginx/sites-available/default
+elif [ "$change" == 'n' ]; then
+    echo "Tidak Mengubah Direktori, Untuk Mengubah Manual Silakan Masuk Ke 'nano /etc/nginx/sites-available/default'."
+else
+    echo "Pilihan tidak valid."
+fi
