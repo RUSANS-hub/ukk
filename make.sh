@@ -16,3 +16,5 @@ echo "Docker container has been started with the following configuration:"
 echo "Port: $port"
 echo "Name: $name"
 echo "Hostname: $hostname"
+
+docker exec -it "$name" bash
