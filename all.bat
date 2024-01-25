@@ -84,9 +84,10 @@ goto :menu
 
 :ssh_without_password_windows
 echo SSH Without Password (Windows)
+set /p ssh_path_win="Enter SSH Key Path (default: ~/.ssh/id_rsa): "
 set /p ssh_port_win="Enter SSH Port: "
 set /p ssh_ip_win="Enter Destination IP: "
-ssh-keygen
-type $env:USERPROFILE/.ssh/id_rsa.pub | ssh ubuntu@!ssh_ip_win! -p "!ssh_port_win!" "cat >>.ssh/authorized_keys"
+set "ssh_path_win=!ssh_path_win:/=\!"
+type "!ssh_path_win!" | ssh ubuntu@!ssh_ip_win! -p "!ssh_port_win!" "cat >>.ssh/authorized_keys"
 pause
 goto :menu
