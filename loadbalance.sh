@@ -33,7 +33,7 @@ echo "$config_content" > lb-new.conf
 # Memindahkan dan mengganti konfigurasi Nginx
 cp lb-new.conf /etc/nginx/conf.d/
 cd /etc/nginx/conf.d/
-mv lb.conf lb-ori.conf
+mv lb.conf ~/ukk/
 mv lb-new.conf lb.conf
 
 # Mereload konfigurasi Nginx
