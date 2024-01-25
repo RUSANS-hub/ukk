@@ -10,7 +10,7 @@ if [ -z "$hostname" ]; then
 fi
 
 # Menjalankan perintah Docker dengan nilai yang diinputkan
-docker run -p "$port:80" --name "$name" -h "$hostname" -di stevegeomet/web bash /script.sh
+docker run -p "$port:80" --name "$name" -h "$hostname" -di stevegeomet/ukk bash /script.sh
 
 echo "Docker container has been started with the following configuration:"
 echo "Port: $port"
