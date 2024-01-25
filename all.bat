@@ -84,7 +84,6 @@ goto :menu
 
 :ssh_without_password_windows
 echo SSH Without Password (Windows)
-set /p ssh_path_win="Enter SSH Key Path (default: ~/.ssh/id_rsa): "
 set /p ssh_port_win="Enter SSH Port: "
 set /p ssh_ip_win="Enter Destination IP: "
 ssh-keygen
