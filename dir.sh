@@ -22,11 +22,11 @@ case $choice in
         ;;
     3)
         read -p "Enter custom text: " text
-        echo "<?php echo 'ini ' . gethostname(); echo \"$text\"; ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo ' ' . gethostname(); echo \"$text\"; ?>" > "/var/www/html/$dir/index.php"
         ;;
     4)
         read -p "Enter custom text: " text
-        echo "<?php echo \"$text\"; echo 'ini ' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo \'$text\' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
         ;;
     *)
         echo "Invalid choice. Please enter a valid option (1/2/3/4)."
