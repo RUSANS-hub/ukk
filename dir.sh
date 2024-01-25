@@ -47,3 +47,8 @@ elif [ "$change" == 'n' ]; then
 else
     echo "Pilihan tidak valid."
 fi
+
+echo "Restarting Server..."
+nginx -t
+/etc/init.d/nginx restart
+echo "Success Restarting Server..."
