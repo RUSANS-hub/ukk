@@ -4,7 +4,7 @@
 read -p "Masukkan IP Address: " ip_address
 read -p "Masukkan Port Web 1: " port_web1
 read -p "Masukkan Port Web 2: " port_web2
-read -p "Masukkan Nama Web: " web_name
+read -p "Masukkan Nama Web, Contoh 'ruben.ukk.tkj1.smkn4bogor.sch.id : '" web_name
 
 # Membuat isi lb-new.conf
 config_content="
