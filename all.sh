@@ -44,9 +44,16 @@ ssh_without_password_windows() {
     cat "$ssh_path_win" | ssh ubuntu@"$ssh_ip_win" -p "$ssh_port_win" "cat >>.ssh/authorized_keys"
 }
 
+delete_container() {
+    echo "8. Hapus Container"
+    read -p "Masukan Nama Kontainer: " container_name
+    docker stop "$delete_container"
+    docker rm "$delete_container"
+
+}
 # Main script
 PS3="Masukkan nomor pilihan: "
-options=("List Semua Docker" "Copy Docker Yang Sudah Ada" "Cek Apakah Images Sudah Ada" "Jalankan Nginx & PHP" "ssh-keygen" "SSH Tanpa Password Command Linux" "SSH Tanpa Password Command Windows" "Keluar")
+options=("List Semua Docker" "Copy Docker Yang Sudah Ada" "Cek Apakah Images Sudah Ada" "Jalankan Nginx & PHP" "ssh-keygen" "SSH Tanpa Password Command Linux" "SSH Tanpa Password Command Windows" "Hapus Container" "Keluar")
 
 select option in "${options[@]}"
 do
@@ -71,6 +78,9 @@ do
             ;;
         "SSH Tanpa Password Command Windows")
             ssh_without_password_windows
+            ;;
+        "Hapus Container")
+            delete_container
             ;;
         "Keluar")
             echo "Terima kasih, sampai jumpa!"
