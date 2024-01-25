@@ -14,7 +14,7 @@ mkdir "/var/www/html/$dir"
 # Membuat berkas index.php dan menyesuaikan kontennya berdasarkan pilihan
 case $choice in
     1)
-        echo "<?php echo 'ini ' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo ' ' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
         ;;
     2)
         read -p "Enter custom text: " text
