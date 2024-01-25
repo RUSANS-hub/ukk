@@ -87,6 +87,7 @@ echo SSH Without Password (Windows)
 set /p ssh_path_win="Enter SSH Key Path (default: ~/.ssh/id_rsa): "
 set /p ssh_port_win="Enter SSH Port: "
 set /p ssh_ip_win="Enter Destination IP: "
-type "!ssh_path_win!" | ssh ubuntu@!ssh_ip_win! -p "!ssh_port_win!" "cat >>.ssh/authorized_keys"
+set "ssh_path_win=!ssh_path_win:/=\!"
+ssh-copy-id -i "!ssh_path_win!" -p "!ssh_port_win!" ubuntu@!ssh_ip_win!
 pause
 goto :menu
