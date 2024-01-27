@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "Masukan Nama Folder Yang Akan Dibuat: " dir
+read -p "mkdir /var/www/html/" dir
 read -p "Pilih Untuk idex.php:
 1. Hostname Doang
 2. Custom Text
