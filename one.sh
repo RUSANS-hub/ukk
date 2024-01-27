@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Sedang Mengunduh Images..."
-docker push rubahilang:foxy
+docker image pull rubahilang:foxy
 echo "Berhasil Mengunduh Images!"
 
 read -p "Masukan Port (8080): " port
