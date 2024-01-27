@@ -1,6 +1,6 @@
 #!/bin/bash
 
-read -p "mkdir /var/www/html/" dir
+read -p "Masukan Directory: /var/www/html/" dir
 read -p "Pilih Untuk index.php:
 1. Hostname Doang
 2. Custom Text
