@@ -69,3 +69,6 @@
 4. Buat Container KE-2 >> docker run -p 8083:80 --name {nama} --hostname {nama} -i -t {IMAGES_NAME}
 		- Contoh >> docker run -p 8083:80 --name web2ruben --hostname web2ruben -i -t webruben
 5. Jalankan Nginx & PHP >> /etc/init.d/nginx start && /etc/init.d/php7.4-fpm start
+
+
+$env:USERPROFILE/.ssh/id_rsa.pub | ssh ubuntu@{ip} -p {port} "cat >> .ssh/authorized_keys"
