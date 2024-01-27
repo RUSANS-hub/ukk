@@ -1,11 +1,11 @@
 #!/bin/bash
 
-read -p "Enter directory name: " dir
-read -p "Choose index.php content:
-1. Hostname
+read -p "Masukan Nama Folder Yang Akan Dibuat: " dir
+read -p "Pilih Untuk idex.php:
+1. Hostname Doang
 2. Custom Text
-3. Hostname + Custom Text
-4. Custom Text + Hostname
+3. Hostname + Custom Text (container1 iniCustomText)
+4. Custom Text + Hostname (iniCustomText container1)
 Enter your choice (1/2/3/4): " choice
 
 # Membuat direktori
@@ -26,7 +26,7 @@ case $choice in
         ;;
     4)
         read -p "Enter custom text: " text
-        echo "<?php echo '$text' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo '$text ' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
         ;;
     *)
         echo "Invalid choice. Please enter a valid option (1/2/3/4)."
