@@ -10,11 +10,11 @@ read option
 case $option in
     1)
         echo "Executing make.sh..."
-        ./make.sh
+        ./one.sh
         ;;
     2)
         echo "Executing loadbalance.sh..."
-        ./loadbalance.sh
+        ./two.sh
         ;;
     8)
         echo "Executing all.sh..."
