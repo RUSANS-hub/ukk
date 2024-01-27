@@ -47,6 +47,7 @@ ssh_without_password_windows() {
 
 delete_container() {
     echo "8. Hapus Container"
+    docker ps -a
     read -p "Masukan Nama Kontainer: " container_name
     echo "Sedang Menghentikan $container_name"
     docker stop "$container_name"
