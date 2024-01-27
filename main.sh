@@ -42,6 +42,10 @@ echo "index.php has been created in /var/www/html/$dir with the chosen content."
 read -p "Ubah Direktori Sekarang? (y/n): " change
 
 if [ "$change" == 'y' ]; then
+	mkdir backup
+ 	cp /etc/nginx/sites-available/default .
+  	cd /etc/nginx/sites-available/
+   	rm default
     content=```
 ##
 # You should look at the following URL's in order to grasp a solid understanding
@@ -135,6 +139,7 @@ server {
 #	}
 #}
 ```
+	echo "$config_content" > default
 elif [ "$change" == 'n' ]; then
     echo "Tidak Mengubah Direktori, Untuk Mengubah Manual Silakan Masuk Ke 'nano /etc/nginx/sites-available/default'."
 else
