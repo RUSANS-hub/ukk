@@ -7,6 +7,7 @@ show_docker_list() {
 
 copy_docker_container() {
     echo "2. Copy Docker Yang Sudah Ada"
+    docker ps -a
     read -p "Masukkan Container ID yang ingin di-copy: " container_id
     read -p "Masukkan nama untuk image baru: " image_name
     docker commit "$container_id" "$image_name"
@@ -51,6 +52,8 @@ delete_container() {
     docker rm "$delete_container"
 
 }
+
+delete
 # Main script
 PS3="Masukkan nomor pilihan: "
 options=("List Semua Docker" "Copy Docker Yang Sudah Ada" "Cek Apakah Images Sudah Ada" "Jalankan Nginx & PHP" "ssh-keygen" "SSH Tanpa Password Command Linux" "SSH Tanpa Password Command Windows" "Hapus Container" "Keluar")
