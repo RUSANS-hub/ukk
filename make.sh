@@ -3,7 +3,7 @@
 read -p "Masukan Port (8080): " port
 read -p "Masukan Nama: " name
 read -p "Masukan Hostname (Tekan Enter Jika Hostname Sama Dengan Nama): " hostname
-read -p "Masukan Image Container (Tekan Enter Jika Default): " image
+read -p "Masukan Image Container (Tekan Enter Jika Untuk Memakai Image Najib): " image
 
 # Menggunakan nilai name jika hostname tidak diisi
 if [ -z "$hostname" ]; then
