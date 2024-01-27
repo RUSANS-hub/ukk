@@ -1,11 +1,11 @@
 #!/bin/bash
 
-echo "Select an option:"
-echo "1. Create Container (make.sh)"
-echo "2. Create File Index (dir.sh)"
-echo "3. Configure Load Balance (loadbalance.sh)"
-echo "4. Other Options (all.sh)"
+echo "1. Buat Container"
+echo "2. Buat Index"
+echo "3. Konfigurasi Load Balance"
+echo "4. Menu lainnya (SSH, Cek Images, DLL)"
 
+echo "Masukan Pilihan :"
 read option
 
 case $option in
