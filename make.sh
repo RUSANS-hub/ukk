@@ -1,8 +1,8 @@
 #!/bin/bash
 
-read -p "Enter port: " port
-read -p "Enter name: " name
-read -p "Enter hostname (press Enter to use the same value as name): " hostname
+read -p "Masukan Port (8080): " port
+read -p "Masukan Nama: " name
+read -p "Masukan Hostname (Tekan Enter Jika Hostname Sama Dengan Nama): " hostname
 
 # Menggunakan nilai name jika hostname tidak diisi
 if [ -z "$hostname" ]; then
@@ -12,9 +12,9 @@ fi
 # Menjalankan perintah Docker dengan nilai yang diinputkan
 docker run -p "$port:80" --name "$name" -h "$hostname" -di stevegeomet/ukk bash /script.sh
 
-echo "Docker container has been started with the following configuration:"
+echo "Masukan Konfigurasi Docker:"
 echo "Port: $port"
-echo "Name: $name"
+echo "Nama: $name"
 echo "Hostname: $hostname"
 
 docker exec -it "$name" bash
