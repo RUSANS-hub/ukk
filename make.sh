@@ -9,10 +9,17 @@ if [ -z "$hostname" ]; then
     hostname=$name
 fi
 
+
+echo "Sedang Menjalankan Nginx & PHP..."
+/etc/init.d/nginx start
+/etc/init.d/php7.4-fpm start
+echo "Nginx & PHP Berhasil Dijalankan!"
+
 # Menjalankan perintah Docker dengan nilai yang diinputkan
+echo "Sedang Membuat Container..."
 docker run -p "$port:80" --name "$name" -h "$hostname" -di stevegeomet/ukk bash /script.sh
 
-echo "Masukan Konfigurasi Docker:"
+echo "Docker Berhasil Dibuat Dengan Konfigurasi Berikut:"
 echo "Port: $port"
 echo "Nama: $name"
 echo "Hostname: $hostname"
