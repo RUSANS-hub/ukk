@@ -1,7 +1,7 @@
 #!/bin/bash
 
 read -p "mkdir /var/www/html/" dir
-read -p "Pilih Untuk idex.php:
+read -p "Pilih Untuk index.php:
 1. Hostname Doang
 2. Custom Text
 3. Hostname + Custom Text (container1 iniCustomText)
