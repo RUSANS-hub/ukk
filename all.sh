@@ -48,8 +48,8 @@ ssh_without_password_windows() {
 delete_container() {
     echo "8. Hapus Container"
     read -p "Masukan Nama Kontainer: " container_name
-    docker stop "$delete_container"
-    docker rm "$delete_container"
+    docker stop "$container_name"
+    docker rm "$container_name"
 
 }
 
