@@ -39,11 +39,11 @@ echo "index.php has been created in /var/www/html/$dir with the chosen content."
 read -p "Ubah Direktori Sekarang? (y/n): " change
 
 if [ "$change" == 'y' ]; then
-    mkdir backup
+    mkdir -p backup
     cp /etc/nginx/sites-available/default backup/
     cd /etc/nginx/sites-available/
     rm default
-    config_content=$(cat <<-EOF
+    config_content=$(cat <<'EOF'
         ##
         # You should look at the following URL's in order to grasp a solid understanding
         # of Nginx configuration files in order to fully unleash the power of Nginx.
@@ -68,7 +68,7 @@ if [ "$change" == 'y' ]; then
             listen 80 default_server;
             listen [::]:80 default_server;
 
-            root /var/www/html/$dir;
+            root /var/www/html/'$dir';
 
             # Add index.php to the list if you are using PHP
             index index.php index.html index.htm index.nginx-debian.html;
@@ -78,7 +78,7 @@ if [ "$change" == 'y' ]; then
             location / {
                 # First attempt to serve request as file, then
                 # as directory, then fall back to displaying a 404.
-                try_files \$uri \$uri/ =404;
+                try_files $uri $uri/ =404;
             }
 
             # pass PHP scripts to FastCGI server
@@ -95,29 +95,8 @@ if [ "$change" == 'y' ]; then
             #    deny all;
             # }
         }
-	
-	
-	# Virtual Host configuration for example.com
-	#
-	# You can move that to a different file under sites-available/ and symlink that
-	# to sites-enabled/ to enable it.
-	#
-	#server {
-	#	listen 80;
-	#	listen [::]:80;
-	#
-	#	server_name example.com;
-	#
-	#	root /var/www/example.com;
-	#	index index.html;
-	#
-	#	location / {
-	#		try_files $uri $uri/ =404;
-	#	}
-	#}
-
-        EOF
-    )
+EOF
+)
     echo "$config_content" > default
 elif [ "$change" == 'n' ]; then
     echo "Tidak Mengubah Direktori, Untuk Mengubah Manual Silakan Masuk Ke 'nano /etc/nginx/sites-available/default'."
@@ -127,5 +106,5 @@ fi
 
 echo "Restarting Server..."
 nginx -t
-/etc/init.d/nginx restart
+service nginx restart
 echo "Success Restarting Server..."
