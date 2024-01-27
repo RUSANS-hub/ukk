@@ -14,25 +14,26 @@ mkdir "/var/www/html/$dir"
 # Membuat berkas index.php dan menyesuaikan kontennya berdasarkan pilihan
 case $choice in
     1)
-        echo "<?php echo ' ' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo ' ' . gethostname() . ' '; ?>" > "/var/www/html/$dir/index.php"
         ;;
     2)
         read -p "Enter custom text: " text
-        echo "<?php echo \"$text\"; ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo \"$text\" . ' '; ?>" > "/var/www/html/$dir/index.php"
         ;;
     3)
         read -p "Enter custom text: " text
-        echo "<?php echo ' ' . gethostname(); echo \"$text\"; ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo ' ' . gethostname() . ' ' . \"$text\" . ' '; ?>" > "/var/www/html/$dir/index.php"
         ;;
     4)
         read -p "Enter custom text: " text
-        echo "<?php echo '$text ' . gethostname(); ?>" > "/var/www/html/$dir/index.php"
+        echo "<?php echo '$text ' . gethostname() . ' '; ?>" > "/var/www/html/$dir/index.php"
         ;;
     *)
         echo "Invalid choice. Please enter a valid option (1/2/3/4)."
         exit 1
         ;;
 esac
+
 
 echo "index.php has been created in /var/www/html/$dir with the chosen content."
 
