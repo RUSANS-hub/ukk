@@ -1,0 +1,71 @@
+1. Login SSH
+2. Masuk Super User >> sudo su
+3. Cek Status Docker >> /etc/init.d/docker status
+4. Buat Container >> docker run -p {port}:80 --name {name} --hostname {name} -i -t ubuntu:focal
+		- Contoh >> docker run -p 8082:80 --name web1ruben --hostname web1ruben -i -t ubuntu:focal
+5. Install Seluruh Paket Yang Dibutuhkan >> apt-get update && apt-get install nginx php php-fpm elinks iputils-ping nano -y
+	- Setting Sesuai Area (Asia >> Jakarta)
+6. Membuat Direktori Server >> mkdir /var/www/html/{nama folder}
+		- Contoh >> mkdir /var/www/html/ukk
+7. Membuat File Index >> nano /var/www/html/ukk/index.php
+		- Isi File Index Sesuai Kebutuhan
+			- Contoh >> <?php
+					echo "Welcome To \n";
+					echo gethostname();
+					?>
+8. Mengkonfigurasi Nginx >> nano /etc/nginx/sites-available/default
+9. Edit Pada Bagian
+		sebelum 	
+			        root /var/www/html;
+
+				# Add index.php to the list if you are using PHP
+				index index.html index.htm index.nginx-debian.html;
+				
+				        # pass PHP scripts to FastCGI server
+					#
+					#location ~ \.php$ {
+					#	include snippets/fastcgi-php.conf;
+					#
+					#       # With php-fpm (or other unix sockets):
+					#	#fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+					#       # With php-cgi (or other tcp sockets):
+					#       #fastcgi_pass 127.0.0.1:9000;
+					#}
+
+			Menjadi 
+			
+			        root /var/www/html/ukk;
+
+				# Add index.php to the list if you are using PHP
+				index index.html index.php index.htm index.nginx-debian.html;
+
+				        # pass PHP scripts to FastCGI server
+					#
+					location ~ \.php$ {
+						include snippets/fastcgi-php.conf;
+					#
+					#       # With php-fpm (or other unix sockets):
+						fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+					#       # With php-cgi (or other tcp sockets):
+					#       fastcgi_pass 127.0.0.1:9000;
+					}
+					
+					
+10. Cek Error Pada Nginx >> nginx -t
+11. Restart Nginx >> /etc/init.d/nginx restart
+12. Restart PHP >> /etc/init.d/php7.4-fpm restart
+13. Buka Server Di Browser >> {Ip Kamu}:{Port}
+14. Keluar Docker >> CTRL + P & CTRL + Q
+
+
+
+1. List Semua Docker >> docker ps -a
+2. Copy Docker Yang Sudah Ada >> docker commit {Container ID} {IMAGES_NAME}
+		- Contoh >> docker commit 77b68a709463 webruben
+		- Jika Berhasil
+			root@loadbalance:/home/ubuntu# docker commit 77b68a709463 webruben
+							sha256:a6f3d0e40e04f5ee1dec371263a97523e375fe235bffacd9dff47a7dd9f8a17b
+3. Cek Apakah Images Sudah Ada >> docker images
+4. Buat Container KE-2 >> docker run -p 8083:80 --name {nama} --hostname {nama} -i -t {IMAGES_NAME}
+		- Contoh >> docker run -p 8083:80 --name web2ruben --hostname web2ruben -i -t webruben
+5. Jalankan Nginx & PHP >> /etc/init.d/nginx start && /etc/init.d/php7.4-fpm start
