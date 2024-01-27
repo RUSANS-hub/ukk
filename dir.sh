@@ -1,9 +1,9 @@
 #!/bin/bash
 
 read -p "Masukan Directory: /var/www/html/" dir
-read -p "Pilih Untuk index.php:
-1. Hostname Doang
-2. Custom Text
+read -p "Pilih Content Untuk index.php:
+1. Hostname Doang (container1)
+2. Custom Text (IniCustomText)
 3. Hostname + Custom Text (container1 iniCustomText)
 4. Custom Text + Hostname (iniCustomText container1)
 Enter your choice (1/2/3/4): " choice
