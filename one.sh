@@ -16,7 +16,7 @@ fi
 
 # Menggunakan nilai default jika image tidak diisi
 if [ -z "$image" ]; then
-    image="rubahilang/foxy:v1"
+    image="rubahilang/foxy"
 fi
 
 echo "Sedang Menjalankan Nginx & PHP..."
