@@ -7,7 +7,7 @@ echo "Berhasil Mengunduh Images!"
 read -p "Masukan Port (8080): " port
 read -p "Masukan Nama: " name
 read -p "Masukan Hostname (Tekan Enter Jika Hostname Sama Dengan Nama): " hostname
-read -p "Masukan Image Container (Tekan Enter Jika Ingin Memakai Image Najib): " image
+read -p "Masukan Image Container (Tekan Enter Jika Ingin Memakai Image Gweh): " image
 
 # Menggunakan nilai name jika hostname tidak diisi
 if [ -z "$hostname" ]; then
