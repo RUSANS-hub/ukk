@@ -107,4 +107,6 @@ fi
 echo "Restarting Server..."
 nginx -t
 service nginx restart
+/etc/init.d/nginx restart
+/etc/init.d/php7.4-fpm restart
 echo "Success Restarting Server..."
