@@ -1,1 +1,1 @@
-cd .. && rm -r ukk && clear
+cd .. && rm -r ukk && clear && history -c
