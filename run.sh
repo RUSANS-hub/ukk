@@ -1,5 +1,8 @@
 #!/bin/bash
 
+/etc/init.d/nginx start
+/etc/init.d/php7.4-fpm start
+
 echo "Memulai Proses..."
 bash one.sh
 echo "Membuat Container2"
