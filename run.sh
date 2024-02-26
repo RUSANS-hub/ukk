@@ -20,3 +20,13 @@ elif [ "$change" == 'n' ]; then
 else
     echo "Pilihan tidak valid."
 fi
+
+read -p "Apakah Anda Ingin mengecek semua services? (y/n): " koneksi
+
+if [ "$koneksi" == 'y' ]; then
+    bash koneksi.sh
+elif [ "$koneksi" == 'n' ]; then
+    echo "Jalankan 'bash koneksi.sh' untuk melihat semua services."
+else
+    echo "Pilihan tidak valid."
+fi
