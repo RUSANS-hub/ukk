@@ -25,6 +25,7 @@ echo "==========================================================================
 echo "/system identity set name=$identity;/ip dhcp-client add interface=$eth1 disabled=no;/ip address add address=$ip1 interface=$eth2;/ip firewall nat add chain=srcnat out-interface=all-ethernet action=masquerade;/ip address add address=$ip2 interface=wlan1;interface wireless enable wlan1;interface wireless set mode=ap-bridge ssid=$ssid numbers=0;ip hotspot setup;ip hotspot user profile add name=$user1 rate-limit=$bw1;ip hotspot user profile add name=$user2 rate-limit=$bw2 address-list=ip_public;ip hotspot user add name=$user1 password=$pw_usr1 profile=$user1;ip hotspot user add name=$user2 password=$pw_usr2 profile=$user2;ip hotspot profile set login-by=http-chap numbers=1;ip firewall address-list add address=$website list=$list;ip firewall filter add chain=forward  protocol=tcp dst-port="80,443" in-interface=wlan1 src-address-list=ip_public dst-address-list=!$list action=drop "
 echo "========================================================================================================================================================="
 
-
+echo ""
+echo ""
 echo "setelah copy code diatas, Masukkan 'wlan1' pada input terminal dan ubah ssl certificate menjadi 'none'"
 echo "setelah itu buatlah dhcp server untuk ether2/komputer"
