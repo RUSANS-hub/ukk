@@ -38,11 +38,8 @@ ssh_without_password_linux() {
 }
 
 ssh_without_password_windows() {
-    echo "7. SSH Tanpa Password Command Windows"
-    read -p "Masukkan path kunci SSH (default: ~/.ssh/id_rsa): " ssh_path_win
-    read -p "Masukkan port SSH: " ssh_port_win
-    read -p "Masukkan IP tujuan: " ssh_ip_win
-    cat "$ssh_path_win" | ssh ubuntu@"$ssh_ip_win" -p "$ssh_port_win" "cat >>.ssh/authorized_keys"
+    echo "Copas Code Ini Pada CMD"
+    echo '$env:USERPROFILE/.ssh/id_rsa.pub | ssh ubuntu@{ip} -p {port} "cat >> .ssh/authorized_keys"'
 }
 
 delete_container() {
