@@ -39,7 +39,7 @@ ssh_without_password_linux() {
 
 ssh_without_password_windows() {
     echo "Copas Code Ini Pada CMD"
-    echo '$env:USERPROFILE/.ssh/id_rsa.pub | ssh ubuntu@{ip} -p {port} "cat >> .ssh/authorized_keys"'
+    echo 'type $env:USERPROFILE/.ssh/id_rsa.pub | ssh ubuntu@{ip} -p {port} "cat >> .ssh/authorized_keys"'
 }
 
 delete_container() {
